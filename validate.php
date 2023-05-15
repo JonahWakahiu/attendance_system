@@ -66,16 +66,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     } else{
         include("db_connect.php");
 
-        // create an sql query
-        $sql = "INSERT INTO employees(firstname, lastname, gender, nationalid, arrivaltime, date, status) VALUES ('$fname', '$lname', '$gender', '$natID', '$arrival', '$date', '$status')";
+        $query = "SELECT * FROM employees WHERE nationalid = '$natID' && date = '$date'";
+        $result = mysqli_query($conn, $query);
 
-        //save to DB and check
-        if(mysqli_query($conn, $sql)){
-            // success
-            header('Location: index.php');
+        if(mysqli_num_rows($result) > 0){
+            echo "A record with the same national ID and date already exists.";
         } else{
-            echo "failed to add the record: ".mysqli_error($conn);
+            // create an sql query
+            $date = test_input($_POST['date']);
+            $sql = "INSERT INTO employees(firstname, lastname, gender, nationalid, arrivaltime, date, status) VALUES ('$fname', '$lname', '$gender', '$natID', '$arrival', '$date', '$status')";
+
+            //save to DB and check
+            if(mysqli_query($conn, $sql)){
+                // success
+                header('Location: index.php');
+            } else{
+                echo "failed to add the record: ".mysqli_error($conn);
+            }
         }
+
+        
     }
 }
 
