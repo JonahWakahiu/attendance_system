@@ -34,18 +34,18 @@
                 <!-- first name field -->
             <label for="fname">First Name:</label>
             <input type="text" name="fname" id="fname" value="<?php echo $fname; ?>"><br>
-                <span class="error"><?php echo $fnameErr; ?></span>
+                <span class="error"><?php echo $errors['fnameErr']; ?></span>
             <br>
             <!-- last name field -->
             <label for="lname">First Name:</label>
             <input type="text" name="lname" id="lname" value="<?php echo $lname; ?>"><br>
-                <span class="error"><?php echo $lnameErr; ?></span>
+                <span class="error"><?php echo $errors['lnameErr']; ?></span>
             <br>
 
             <!-- National Id field -->
             <label for="natID">National ID:</label>
             <input type="text" name="natID" id="natID" value="<?php echo $natID; ?>"><br>
-                <span class="error"><?php echo $natIDErr; ?></span>
+                <span class="error"><?php echo $errors['natIDErr']; ?></span>
             <br>
 
             <!-- gender field -->
@@ -59,13 +59,13 @@
             <!-- field arrival time -->
             <label for="arrival">Arrival Time:</label>
             <input type="time" name="arrival" id="arrival" value="<?php echo $arrival; ?>"><br>
-                <span class="error"><?php echo $arrivalErr; ?></span>
+                <span class="error"><?php echo $errors['arrivalErr']; ?></span>
             <br>
 
             <!-- field date -->
             <label for="date">Date</label>
             <input type="text" name="date" id="date" autocomplete="off" readonly value="<?php echo $date; ?>"><br>
-                <span class="error"><?php echo $dateErr; ?></span>
+                <span class="error"><?php echo $errors['dateErr']; ?></span>
             <br>
 
             <!-- field for status -->
