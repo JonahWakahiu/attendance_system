@@ -58,7 +58,7 @@
 
             <!-- field arrival time -->
             <label for="arrival">Arrival Time:</label>
-            <input type="text" name="arrival" id="arrival"><br>
+            <input type="time" name="arrival" id="arrival"><br>
                 <span class="error"><?php echo $arrivalErr; ?></span>
             <br>
 

@@ -1,5 +1,6 @@
 <?php 
 
+$fname = $lname = $natID = $gender = $arrival = $date = $status = "";
 $fnameErr = $lnameErr = $natIDErr = $arrivalErr = $dateErr = "";
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -10,6 +11,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $fnameErr = "First Name is required!!";
     } else{
         $fname = test_input($_POST['fname']);
+        // second validation
+        if(!preg_match('/^[a-zA-Z]{3,10}$/', $fname)){
+            $fnameErr = "First Name should be letters only and between 3 to 10 letters...";
+        }
     }
 
     // validate the lastname
@@ -17,6 +22,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $lnameErr = "Last Name is required!!";
     } else{
         $lname = test_input($_POST['lname']);
+        // second level validation
+        if(!preg_match('/^[a-zA-Z]{3,10}$/', $lname)){
+            $lnameErr = "Last Name should be letters only and between 3 to 10 letters...";
+        }
     }
 
     // validate National ID
@@ -24,6 +33,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $natIDErr = "National ID is required!!";
     } else{
         $natID = test_input($_POST['natID']);
+        if(!preg_match('/^[\d]{3,10}$/', $natID)){
+            $natIDErr = "National ID should be numbers olny...";
+        }
     }
 
     // storing the value of gender in a variable
