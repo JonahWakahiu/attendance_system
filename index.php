@@ -33,46 +33,46 @@
         <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
                 <!-- first name field -->
             <label for="fname">First Name:</label>
-            <input type="text" name="fname" id="fname"><br>
+            <input type="text" name="fname" id="fname" value="<?php echo $fname; ?>"><br>
                 <span class="error"><?php echo $fnameErr; ?></span>
             <br>
             <!-- last name field -->
             <label for="lname">First Name:</label>
-            <input type="text" name="lname" id="lname"><br>
+            <input type="text" name="lname" id="lname" value="<?php echo $lname; ?>"><br>
                 <span class="error"><?php echo $lnameErr; ?></span>
             <br>
 
             <!-- National Id field -->
             <label for="natID">National ID:</label>
-            <input type="text" name="natID" id="natID"><br>
+            <input type="text" name="natID" id="natID" value="<?php echo $natID; ?>"><br>
                 <span class="error"><?php echo $natIDErr; ?></span>
             <br>
 
             <!-- gender field -->
             <label for="gender">Gender:</label>
             <select name="gender" id="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
+                <option value="male" <?php if(isset($gender) && $gender == "male") echo "selected"; ?>>Male</option>
+                <option value="female" <?php if(isset($gender) && $gender == "female") echo "selected"; ?>>Female</option>
+                <option value="other" <?php if(isset($gender) && $gender == "other") echo "selected"; ?>>Other</option>
             </select><br><br>
 
             <!-- field arrival time -->
             <label for="arrival">Arrival Time:</label>
-            <input type="time" name="arrival" id="arrival"><br>
+            <input type="time" name="arrival" id="arrival" value="<?php echo $arrival; ?>"><br>
                 <span class="error"><?php echo $arrivalErr; ?></span>
             <br>
 
             <!-- field date -->
             <label for="date">Date</label>
-            <input type="text" name="date" id="date" autocomplete="off" readonly><br>
+            <input type="text" name="date" id="date" autocomplete="off" readonly value="<?php echo $date; ?>"><br>
                 <span class="error"><?php echo $dateErr; ?></span>
             <br>
 
             <!-- field for status -->
             <label for="status">Status</label>
             <select name="status" id="status">
-                <option value="absent">Absent</option>
-                <option value="absent">Absent</option>
+                <option value="absent" <?php if(isset($status) && $status == "absent") echo "selected" ?>>Absent</option>
+                <option value="present" <?php if(isset($status) && $status == "present") echo "selected" ?>>Present</option>
             </select><br><br>
 
             <!-- submit button -->
