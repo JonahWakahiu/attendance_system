@@ -24,6 +24,11 @@ mysqli_close($conn);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance table</title>
+    <style>
+        .decoration{
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <table border="1">
@@ -41,48 +46,22 @@ mysqli_close($conn);
             <th>Status</th>
             <th>Operations</th>
         </tr>
-        <tr>
-            <td>
-                <?php foreach($employees as $employee) { ?>
-                    <?php echo $employee['id'];?>
-                <?php }?>
-            </td>
-            <td>
-                <?php foreach($employees as $employee) { ?>
-                    <?php echo $employee['firstname'];?>
-                <?php }?>
-            </td>
-            <td>
-                <?php foreach($employees as $employee) { ?>
-                    <?php echo $employee['lastname'];?>
-                <?php }?>
-            </td>
-            <td>
-                <?php foreach($employees as $employee) { ?>
-                    <?php echo $employee['nationalid'];?>
-                <?php }?>
-            </td>
-            <td>
-                <?php foreach($employees as $employee) { ?>
-                    <?php echo $employee['gender'];?>
-                <?php }?>
-            </td>
-            <td>
-                <?php foreach($employees as $employee) { ?>
-                    <?php echo $employee['arrivaltime'];?>
-                <?php }?>
-            </td>
-            <td>
-                <?php foreach($employees as $employee) { ?>
-                    <?php echo $employee['date'];?>
-                <?php }?>
-            </td>
-            <td>
-                <?php foreach($employees as $employee) { ?>
-                    <?php echo $employee['status'];?>
-                <?php }?>
-            </td>
-        </tr>
+        <?php foreach($employees as $employee) { ?>
+            <tr>
+                <td><?php echo $employee['id'];?></td>
+                <td><?php echo $employee['firstname'];?></td>
+                <td><?php echo $employee['lastname'];?></td>
+                <td><?php echo $employee['nationalid'];?></td>
+                <td><?php echo $employee['gender'];?></td>
+                <td><?php echo $employee['arrivaltime'];?></td>
+                <td><?php echo $employee['date'];?></td>
+                <td><?php echo $employee['status'];?></td>
+                <td>
+                    <a class="decoration"  href="operation.php?id=<?php echo $employee['id']?>">Delete</a>
+                    <a class="decoration" href="edit.php?id=<?php echo $employee['id']?>">Edit</a>
+                </td>
+            </tr>
+        <?php }?>
     </table>
 </body>
 </html>
