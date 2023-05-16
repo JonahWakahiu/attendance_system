@@ -85,6 +85,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             }
         }
 
+        // close the connection
+        mysqli_close($conn);
         
     }
 }
